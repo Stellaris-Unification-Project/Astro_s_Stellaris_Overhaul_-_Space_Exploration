@@ -1,0 +1,70 @@
+#########################################
+#
+# Galactic Features Events
+#
+# Written by Henrik Thyrwall
+#
+#########################################
+
+namespace = galactic_features
+
+### Space Storms
+event = {
+	id = galactic_features.400
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			has_global_flag = ongoing_space_storm
+			has_global_flag = space_storm_cooldown
+		}
+	}
+
+	immediate = {
+		random_list = {
+			99 = {}
+			1 = {
+				event_target:global_event_country = {
+					country_event = { id = galactic_features.401 }
+				}
+			}
+		}
+	}
+}
+
+# The Storm Ends
+country_event = {
+	id = galactic_features.403
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		remove_global_flag = ongoing_space_storm
+		set_timed_global_flag = { flag = space_storm_cooldown days = 3600 }
+		every_system = {
+			limit = { has_star_flag = storm_system }
+			random_system_ambient_object = {
+				limit = { has_ambient_object_flag = space_storm_object }
+				destroy_ambient_object = this
+			}
+			remove_star_flag = storm_system
+			remove_modifier = space_storm
+		}
+		if = {
+			limit = { is_galactic_community_formed = yes }
+			every_playable_country = {
+				limit = { is_ai = no }
+				country_event = { id = galactic_features.406 }
+			}
+		}
+		else = {
+			every_playable_country = {
+				limit = { is_ai = no }
+				country_event = { id = galactic_features.404 }
+			}
+		}
+	}
+}

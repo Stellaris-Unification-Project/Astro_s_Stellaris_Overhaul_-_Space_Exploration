@@ -1,0 +1,31 @@
+[h1]Astro's Stellaris Overhaul - Space Exploration[/h1]
+This mod is intended to make exploring space more fun and interesting, and maybe also a little more mysterious.
+Note: Should be compatible with virtually any other mod that doesn't edit vanilla anomaly/precursor events or mess with vanilla sensor game rules.
+[h2]Feature Summary[/h2]
+[h3]Vanilla Overwrites[/h3]
+- common/anomalies/*.txt
+[list]
+[*]	Removed the null spawn chance from anomalies, so they have a higher chance of happening at least once.
+[*] The AI will research precursor anomalies now (and may beat you to the precursor homeworld!).
+[/list]
+- common/defines/00_defines.txt
+[list]
+[*]	Takes longer to survey celestial bodies.
+[*] Planet hyperlane detection range decreased by 1.
+[*] First Contact time increased.
+[*] Space monsters more likely to wander, and more likely to wander farther.
+[/list]
+- common/game_rules/00_rules.txt
+[list]
+[*]	The following celestial bodies now also block sensors:
+- Wormholes
+- Neutron Stars
+- Pulsars
+- Black Holes
+[/list]
+- events/various:
+[list]
+[*]	You can now get multiple precursor event chains simultaneously (and so can the AI!).
+[*]	Observation events are more likely to happen.
+[*]	Space Storms can happen earlier and more often.
+[/list]

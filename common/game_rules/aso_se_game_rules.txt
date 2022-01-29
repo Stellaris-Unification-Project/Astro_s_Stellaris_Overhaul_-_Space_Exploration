@@ -1,0 +1,17 @@
+# this = system
+# root = country
+system_blocks_sensors = {
+	OR = {
+		is_inside_nebula = yes
+		has_modifier = space_storm
+		has_star_flag = lcluster
+		has_star_flag = sealed_system
+
+		has_natural_wormhole = yes
+		is_star_class = sc_binary_2
+		is_star_class = sc_neutron_star
+		is_star_class = sc_binary_1
+		is_star_class = sc_pulsar
+		is_star_class = sc_black_hole
+	}
+}

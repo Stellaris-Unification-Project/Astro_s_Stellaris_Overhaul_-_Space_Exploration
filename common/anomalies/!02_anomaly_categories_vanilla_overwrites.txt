@@ -1,0 +1,41 @@
+SUN_TEAPOT_CAT = {
+	desc = "SUN_TEAPOT_DESC"
+	picture = "GFX_evt_star_yellow"
+	level = 5
+	
+	spawn_chance = {
+		modifier = {
+			add = 1
+			OR = {
+				is_planet_class = pc_k_star
+				is_planet_class = pc_m_star
+			}
+		}
+	}
+
+#	null_spawn_chance = 0.80 # 20% chance to spawn
+	
+	on_success = anomaly.4060
+}
+
+STAR_RESONANCE_CAT = {
+	desc = "STAR_RESONANCE_DESC"
+	picture = "GFX_evt_star_yellow"
+	level = 2	
+
+	spawn_chance = {
+		modifier = {
+			add = 1
+			OR = {
+				is_planet_class = pc_k_star
+				is_planet_class = pc_m_star
+			}
+		}
+	}
+
+#	null_spawn_chance = 0.60 # 40% chance to spawn
+
+	on_success = {
+		1 = anomaly.6740
+	}
+}

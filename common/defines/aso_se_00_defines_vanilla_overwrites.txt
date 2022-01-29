@@ -1,0 +1,19 @@
+	NGameplay = {
+#		BASE_SURVEY_TIME 		= 20.0				# Base Time In Days for surveying a planet
+		BASE_SURVEY_TIME 		= 30.0				# Base Time In Days for surveying a planet
+
+#		PLANET_HYPERLANE_RANGE				= 2		# Base Hyperlane Detection range for system that contain fully owned planets in it
+		PLANET_HYPERLANE_RANGE				= 1		# Base Hyperlane Detection range for system that contain fully owned planets in it
+
+#		FIRST_CONTACT_DISCOVERY_DAYS_AI		= 50		# slower for AI to guarantee player has a chance to finish first
+		FIRST_CONTACT_DISCOVERY_DAYS_AI		= 100		# slower for AI to guarantee player has a chance to finish first
+	}
+
+	NAI = {
+#		SPACE_MONSTER_MOVE_CHANCE = 2				# % chance that space monsters pick a new wander target each week
+		SPACE_MONSTER_MOVE_CHANCE = 20				# % chance that space monsters pick a new wander target each week
+
+#		SPACE_MONSTER_WANDER_FACTOR	= 0.75			# The higher this is, the further space monsters will tend to wander from their spawn point (range: 0.0 - 1.0)
+		SPACE_MONSTER_WANDER_FACTOR	= 1.0			# The higher this is, the further space monsters will tend to wander from their spawn point (range: 0.0 - 1.0)
+
+	}

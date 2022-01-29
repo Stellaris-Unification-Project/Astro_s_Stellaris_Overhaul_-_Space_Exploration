@@ -1,0 +1,114 @@
+############################
+#
+# Observation Post Events
+#
+# Written by Henrik Thyrwall
+#
+############################
+
+namespace = observation
+
+### PASSIVE OBSERVATION ###
+
+### Incoming Asteroid
+
+# Incoming Asteroid (HIDDEN)
+planet_event = {
+	id = observation.1
+	hide_window = yes
+
+	trigger = {
+		NOT = { has_global_flag = asteroid_sighted_prim_global }
+		has_observation_outpost = yes
+		observation_outpost_owner = {
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	immediate = {
+		save_event_target_as = primitive_impact_planet
+		set_global_flag = asteroid_sighted_prim_global
+		set_planet_flag = asteroid_sighted_prim_planet
+		observation_outpost_owner = {
+			country_event = { id = observation.2 }
+			set_country_flag = asteroid_sighted_prim_country
+		}
+	}
+}
+
+### Rogue Scientist
+
+# Missing Scientist (HIDDEN)
+planet_event = {
+	id = observation.10
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = { has_mission = passive_observation }
+		observation_outpost_owner = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			AND = {
+				NOT = { has_country_flag = rogue_scientist_chain }
+				is_ai = no
+			}
+		}
+		owner = {
+			is_country_type = primitive
+			OR = {
+				has_country_flag = stone_age
+				has_country_flag = bronze_age
+				has_country_flag = iron_age
+				has_country_flag = late_medieval_age
+				has_country_flag = renaissance_age
+				has_country_flag = steam_age
+			}
+		}
+		NOT = { has_planet_flag = missing_scientist_planet }
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	}
+
+	immediate = {
+		observation_outpost_owner = {
+			country_event = { id = observation.11 }
+		}
+		set_planet_flag = missing_scientist_planet
+	}
+}
+
+### Smuggler Outpost
+
+# Smuggler Outpost (HIDDEN)
+planet_event = {
+	id = observation.50
+	hide_window = yes
+
+	trigger = {
+		has_observation_outpost = yes
+		observation_outpost = { has_mission = passive_observation }
+		observation_outpost_owner = { is_ai = no NOT = { has_authority = auth_hive_mind } }
+		NOT = { has_planet_flag = smuggler_outpost }
+		# PRIMITIVES SHOULD NOT BE TOO ADVANCED
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	}
+
+	immediate = {
+		set_planet_flag = smuggler_outpost
+		observation_outpost_owner = {
+			country_event = { id = observation.51 }
+		}
+	}
+}
