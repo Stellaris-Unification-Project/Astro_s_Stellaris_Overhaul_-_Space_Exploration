@@ -29,7 +29,7 @@ ship_event = {
 		solar_system = {
 			has_star_flag = precursor_baol_1
 			NOR = {
-				is_same_value = root.owner.capital_scope.solar_system
+				is_same_empire = root.owner.capital_scope.solar_system
 				has_star_flag = sol_system
 			}
 		}
@@ -37,8 +37,10 @@ ship_event = {
 		FROM = { 
 			has_anomaly = no 
 			is_star = no
-			NOT = { exists = archaeological_site }
-			NOT = { has_planet_flag = suppress_archaeological_sites }
+			NOR = {
+				exists = archaeological_site
+				has_planet_flag = suppress_archaeological_sites
+			}
 			NOR = {
 				is_planet_class = pc_gas_giant
 				is_planet_class = pc_molten

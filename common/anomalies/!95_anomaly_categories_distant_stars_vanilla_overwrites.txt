@@ -89,8 +89,7 @@ disco_impossible_organism_cat = {
 			factor = 0
 			from.owner = {
 				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
+					is_xenophobe = yes
 					has_civic = civic_machine_terminator
 					has_authority = auth_hive_mind
 				}
